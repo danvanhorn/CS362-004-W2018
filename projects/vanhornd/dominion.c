@@ -741,11 +741,13 @@ int getCost(int cardNumber)
 
 int adventurerAction(int currentPlayer, struct gameState *state)
 {
-  int z, drawntreasure = 0;
+  int z = 0;
+  int drawntreasure = 0;
   int cardDrawn;
   int temphand[MAX_HAND];
   while (drawntreasure < 2)
   {
+    printf("looking for treasure\n");
     if (state->deckCount[currentPlayer] < 1)
     { //if the deck is empty we need to shuffle discard and add to deck
       shuffle(currentPlayer, state);
@@ -753,17 +755,24 @@ int adventurerAction(int currentPlayer, struct gameState *state)
     drawCard(currentPlayer, state);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1]; //top card of hand is most recently drawn card.
     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+    {
+      printf("found some treasure\n");
       drawntreasure++;
+    }
     else
     {
+      printf("revealing\n");
       temphand[z] = cardDrawn;
       state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
+      printf("hand count fault?\n");
       z++;
     }
   }
   while (z - 1 >= 0)
   {
+    printf("discarding\n");
     state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
+    printf("discarded\n");    
     z = z - 1;
   }
   return 0;
