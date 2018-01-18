@@ -132,9 +132,9 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 
 /* functions for card actions */
 int adventurerAction(int currentPlayer, struct gameState *state);
-int smithyAction(int currentPlayer, struct gameState *state);
-int mineAction(int currentPlayer, struct gameState *state);
-int feastAction(int currentPlayer, struct gameState *state);
+int smithyAction(int currentPlayer, struct gameState *state, int handPos);
+int mineAction(int currentPlayer, struct gameState *state, int choice1,  int choice2, int handPos);
+int feastAction(int currentPlayer, struct gameState *state, int choice1);
 int councilRoomAction(int currentPlayer, struct gameState *state, int handPos);
 
 #endif
