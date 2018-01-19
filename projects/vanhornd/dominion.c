@@ -764,9 +764,9 @@ int adventurerAction(int currentPlayer, struct gameState *state)
       z++;
     }
   }
-  while (z - 1 >= 0)
+  while (z >= 0)
   {
-    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn  
+    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
     z = z - 1;
   }
   return 0;
