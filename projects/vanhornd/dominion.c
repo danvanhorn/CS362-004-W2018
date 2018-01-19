@@ -892,7 +892,6 @@ int mineAction(int currentPlayer, struct gameState *state, int choice1, int choi
     if (state->hand[currentPlayer][i] == j)
     {
       discardCard(i, currentPlayer, state, 0);
-      break;
     }
   }
 
@@ -909,7 +908,7 @@ int smithyAction(int currentPlayer, struct gameState *state, int handPos)
   }
   //discard card from hand
   discardCard(handPos, currentPlayer, state, 0);
-  return 0;
+  return -1;
 }
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
