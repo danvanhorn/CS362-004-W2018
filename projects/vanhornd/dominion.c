@@ -823,7 +823,7 @@ int feastAction(int currentPlayer, struct gameState *state, int choice1)
         printf("Cards Left: %d\n", supplyCount(choice1, state));
       }
     }
-    else if (state->coins < getCost(choice1))
+    else if (state->coins > getCost(choice1))
     {
       printf("That card is too expensive!\n");
 
