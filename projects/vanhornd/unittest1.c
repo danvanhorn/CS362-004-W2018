@@ -8,26 +8,6 @@
 #include <string.h>
 
 typedef struct gameState gameState;
-// typedef struct cardDescriptor
-// {
-//     enum CARD;
-//     int cost;
-// } cardDescriptor;
-
-// cardDescriptor *initCardDescriptor()
-// {
-//     int i;
-//     cardDescriptor *cardArray;
-//     int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
-//     int costs[10] = {5, 2, 3, 5, 5, 4, 4, 5, 4, 5};
-//     cardArray = malloc(10 * sizeof(cardDescriptor));
-//     for (i = 0; i < 10; i++)
-//     {
-//         cardArray->CARD = k[i];
-//         cardArray->cost = costs[i];
-//     }
-//     return cardArray;
-// }
 
 // testing the buyCard() function
 int main()
@@ -40,8 +20,6 @@ int main()
     random = rand();   // returns a pseudo-random integer between 0 and RAND_MAX
     initializeGame(2, k, random, &game);
 
-    // buy each card in the game object directly
-    // buy each card in the testGame using drawCard()
     game.whoseTurn = 0; // doesn't really matter which player is buying
     game.numBuys = 27;  // a phase to buy each card in the supply
     game.coins = 0;     // at first, we want insuccifient funds
@@ -95,7 +73,8 @@ int main()
     }
     memmove(&testGame, &game, sizeof(gameState));
 
-    // check buying all of the cards
+    // buy each card in the game object directly
+    // buy each card in the testGame using drawCard()
     printf("\n======= TESTING 'buyCard()' TO CLEAR THE WHOLE SUPPLY =======\n");
     for (j = 0; j < 10; j++)
     {
