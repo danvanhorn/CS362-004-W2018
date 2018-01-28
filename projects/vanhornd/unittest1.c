@@ -12,13 +12,12 @@ typedef struct gameState gameState;
 // testing the buyCard() function
 int main()
 {
-    int i, j, success, random;
+    int i, j, success;
     gameState game, testGame;
     int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 
-    srand(time(NULL)); // should only be called once
-    random = rand();   // returns a pseudo-random integer between 0 and RAND_MAX
-    initializeGame(2, k, random, &game);
+    srand(time(NULL)); 
+    initializeGame(2, k, rand(), &game);
 
     game.whoseTurn = 0; // doesn't really matter which player is buying
     game.numBuys = 27;  // a phase to buy each card in the supply
@@ -102,7 +101,7 @@ int main()
     }
 
     // attempt to buy a card when there are none left in the supply
-    printf("\n ======= TESTING 'buyCard()' WITH EMPTY SUPPLY ======= \n")
+    printf("\n ======= TESTING 'buyCard()' WITH EMPTY SUPPLY ======= \n");
     for(i = 0; i < 27; i++){
         if(buyCard(i, &testGame) == -1){
             printf("PASSED: supply pos %d is empty, unable to purchase\n", i);
