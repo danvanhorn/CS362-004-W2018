@@ -23,6 +23,18 @@ unitTest3: unittest3.c dominion.o rngs.o
 unitTest4: unittest4.c dominion.o rngs.o
 	gcc -o unittest4 -g unittest4.c dominion.o rngs.o $(CFLAGS)
 
+cardTest1: cardtest1.c dominion.o rngs.o
+	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
+
+cardTest2: cardtest2.c dominion.o rngs.o
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+
+cardTest3: cardtest3.c dominion.o rngs.o
+	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
+
+cardTest4: cardtest4.c dominion.o rngs.o
+	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
+
 testDrawCard: testDrawCard.c dominion.o rngs.o
 	gcc  -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
@@ -43,11 +55,36 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
+runUnitTests: unitTest1 unitTest2 unitTest3 unitTest4
+	./unittest1 >> unittestresult.out
+	gcov unittest1.c >> unittestresult.out
+	cat unittest1.c.gcov >> unittestresult.out
+	./unittest2 >> unittestresult.out
+	gcov unittest2.c >> unittestresult.out
+	cat unittest2.c.gcov >> unittestresult.out
+	./unittest3 >> unittestresult.out
+	gcov unittest3.c >> unittestresult.out
+	cat unittest3.c.gcov >> unittestresult.out
+	./unittest4 >> unittestresult.out
+	gcov unittest4.c >> unittestresult.out
+	cat unittest4.c.gcov >> unittestresult.out
+	./cardtest1 >> unittestresult.out
+	gcov cardtest1.c >> unittestresult.out
+	cat cardtest1.c.gcov >> unittestresult.out
+	./cardtest2 >> unittestresult.out
+	gcov cardtest2.c >> unittestresult.out
+	cat cardtest2.c.gcov >> unittestresult.out
+	./cardtest3 >> unittestresult.out
+	gcov cardtest3.c >> unittestresult.out
+	cat cardtest3.c.gcov >> unittestresult.out
+	./cardtest4 >> unittestresult.out
+	gcov cardtest4.c >> unittestresult.out
+	cat cardtest4.c.gcov >> unittestresult.out
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-unitTests: unitTest1 unitTest2 unitTest3 unitTest4
+unitTests: unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
