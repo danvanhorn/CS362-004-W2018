@@ -71,18 +71,22 @@ int main()
     for (i = 0; i < 10; i++)
     {
         game.hand[0][i] = k[i];
-        game.hand[0][i+10] = k[i+10];
-        game.hand[0][i+20] = k[i+20];
-        game.hand[0][i+30] = k[i+30];
+        game.hand[0][i + 10] = k[i + 10];
+        game.hand[0][i + 20] = k[i + 20];
+        game.hand[0][i + 30] = k[i + 30];
     }
     game.numActions = 27;
     memmove(&testGame, &game, sizeof(gameState));
 
-    printf("\n ======= TESTING 'buyCard()' ON VALID ACTION CARDS ======= \n");
-    for(i = 0; i < 10; i++){
-        if(playCard(i, i+10, i+20, i+30, &testGame) == 0){
+    printf("\n ======= TESTING 'playCard()' ON VALID ACTION CARDS ======= \n");
+    for (i = 0; i < 10; i++)
+    {
+        if (playCard(i, i + 30, i + 20, i + 10, &testGame) == 0)
+        {
             printf("PASSED: succesfully played card at hand pos %d \n", i);
-        } else{
+        }
+        else
+        {
             printf("FAILED: could not play at hand pos %d \n", i);
         }
     }
