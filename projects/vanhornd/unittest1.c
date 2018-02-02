@@ -16,7 +16,7 @@ int main()
     gameState game, testGame;
     int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 
-    srand(time(NULL)); 
+    srand(time(NULL));
     initializeGame(2, k, rand(), &game);
 
     game.whoseTurn = 0; // doesn't really matter which player is buying
@@ -64,11 +64,12 @@ int main()
 
     game.coins = 10000;
     game.numBuys = 10000;
-    
-    for(i = 0; i< 27; i++){ // make sure we have an equal number of each card for the test
+
+    for (i = 0; i < 27; i++)
+    { // make sure we have an equal number of each card for the test
         game.supplyCount[i] = 10;
         testGame.supplyCount[i] = 10;
-        printf("supply count at pos %d is %d\n", i , game.supplyCount[i]);
+        printf("supply count at pos %d is %d\n", i, game.supplyCount[i]);
     }
     memmove(&testGame, &game, sizeof(gameState));
 
@@ -96,16 +97,19 @@ int main()
             {
                 printf("FAILED: 'buyCard()' is unsuccessful at supply pos %d \n", i);
             }
-
         }
     }
 
     // attempt to buy a card when there are none left in the supply
     printf("\n ======= TESTING 'buyCard()' WITH EMPTY SUPPLY ======= \n");
-    for(i = 0; i < 27; i++){
-        if(buyCard(i, &testGame) == -1){
+    for (i = 0; i < 27; i++)
+    {
+        if (buyCard(i, &testGame) == -1)
+        {
             printf("PASSED: supply pos %d is empty, unable to purchase\n", i);
-        }else{
+        }
+        else
+        {
             printf("FAILED: should not be able to purchase at supply pos %d \n", i);
         }
     }

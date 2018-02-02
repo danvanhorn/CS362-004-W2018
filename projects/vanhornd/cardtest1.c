@@ -44,7 +44,7 @@ int main()
         printf("FAILED: expected 2 cards in hand, actual: %d cards in hand \n", success);
     }
 
-    if(game.playedCards[0] == smithy)
+    if (game.playedCards[0] == smithy)
     {
         printf("PASSED: expected smithy in played card pile, actual: smithy \n");
     }
