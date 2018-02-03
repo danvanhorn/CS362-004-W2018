@@ -53,6 +53,8 @@ int main()
         printf("FAILED: played a card with 0 available actions.\n");
     }
 
+    initializeGame(1, j, rand(), &game);
+
     // check failure for not playing a non action card
     printf("\n======= TESTING 'playCard()' WITH NON-ACTION CARDS =======\n");
     for (i = 0; i < 7; i++)
@@ -67,6 +69,7 @@ int main()
         }
     }
 
+    initializeGame(1, k, rand(), &game);
     // now fill the player's hand with the valid action cards
     for (i = 0; i < 10; i++)
     {

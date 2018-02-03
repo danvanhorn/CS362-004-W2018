@@ -23,7 +23,7 @@ int main()
     game.hand[0][0] = smithy;
     game.discardCount[0] = 0;
 
-    //test that the smithyAction() completes succesfully
+    // test that the smithyAction() completes succesfully
     printf("\n ======= TESTING 'smithyAction()' FUNCTION ======= \n");
     success = smithyAction(game.whoseTurn, &game, 0);
     if (success == 0)
@@ -35,13 +35,13 @@ int main()
         printf("FAILED: expected 0 return value, received %d \n", success);
     }
 
-    if (game.handCount[0] == 2)
+    if (game.handCount[0] == 3)
     {
-        printf("PASSED: expected 2 cards in hand, actual: %d cards in hand \n", success);
+        printf("PASSED: expected 3 cards in hand, actual: %d cards in hand \n", success);
     }
     else
     {
-        printf("FAILED: expected 2 cards in hand, actual: %d cards in hand \n", success);
+        printf("FAILED: expected 3 cards in hand, actual: %d cards in hand \n", success);
     }
 
     if (game.playedCards[0] == smithy)
@@ -51,15 +51,6 @@ int main()
     else
     {
         printf("FAILED: expected smithy in played card pile, actual: %d  \n", game.discard[0][0]);
-    }
-
-    if (game.discardCount[0] == 1 && game.discard[0][0] == smithy)
-    {
-        printf("PASSED: expected smithy in discard pile, actual: smithy \n");
-    }
-    else
-    {
-        printf("FAILED: expected smithy in discard pile, actual: %d  \n", game.discard[0][0]);
     }
 
     return 0;
