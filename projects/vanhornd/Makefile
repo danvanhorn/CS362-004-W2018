@@ -84,6 +84,8 @@ runUnitTests: unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTe
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
+randomQuiz
+
 unitTests: unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard
