@@ -70,9 +70,8 @@ int main()
                 state.handCount[j] = rand() % MAX_HAND;
                 state.deckCount[j] = rand() % MAX_DECK;
                 state.discardCount[j] = rand() % MAX_DECK;
-                state.numActions = rand() % HANDSIZE;
-                state.numBuys = rand() % HANDSIZE;
             }
+            state.numActions = rand() % HANDSIZE;
             state.whoseTurn = player;
             handCount = state.handCount[player];
             numActions = state.numActions;
