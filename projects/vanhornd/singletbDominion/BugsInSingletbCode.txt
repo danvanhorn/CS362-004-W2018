@@ -1,7 +1,11 @@
 adventurerCard():
-    There is a bug in this function that was revealed with the randomtestadventurer test
-    the adventrueCard function increments drawn treasure by 2 instead of 1 which causes undefined
+    There is a bug on line 654 in this function that was revealed with the randomtestadventurer test
+    the adventurerCard function increments drawn treasure by 2 instead of 1 which causes undefined
     behavior.
 
 smithyCard():
-    The smith card allows players to draw 5 cards. The expected number of cards is 3.
+    The smithy card allows players to draw 5 cards on line 672. The expected number of cards is 3.
+
+greatHallCard():
+    The great hall card function adds two additional actions (lines 704-703) to the player. The two 
+    increment statements after 'state->numActions++;' extraneous. 
