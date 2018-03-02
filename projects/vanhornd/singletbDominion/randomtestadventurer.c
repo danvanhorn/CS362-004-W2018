@@ -85,9 +85,10 @@ int main()
             for (j = 0; j < players; j++)
             {
                 // loop through each player and give them random values
-                state.handCount[j] = rand() % MAX_HAND;
+                state.handCount[j] = rand() % MAX_HAND + 1;
                 state.deckCount[j] = rand() % MAX_DECK;
                 state.discardCount[j] = rand() % MAX_DECK;
+                state.hand[j][0] = adventurer;
             }
             state.whoseTurn = player; // set current player
             deckCountPre = state.deckCount[player];
@@ -96,7 +97,7 @@ int main()
             // get the original hand count
             handCount = numHandCards(&state);
             // play the adventurer
-            adventurerAction(player, &state);
+            cardEffect(adventurer, 1, 2, 3, &state, 0, cards);
             // check the game state and assert
             checkGameState(handCount, deckCountPre, discardCountPre, treasureCount, &passed, &failed, &state);
         }

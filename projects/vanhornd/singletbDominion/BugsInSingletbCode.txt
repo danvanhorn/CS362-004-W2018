@@ -1,0 +1,7 @@
+adventurerCard():
+    There is a bug in this function that was revealed with the randomtestadventurer test
+    the adventrueCard function increments drawn treasure by 2 instead of 1 which causes undefined
+    behavior.
+
+smithyCard():
+    The smith card allows players to draw 5 cards. The expected number of cards is 3.

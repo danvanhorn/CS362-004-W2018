@@ -75,7 +75,7 @@ int main()
             deckCountPre = state.deckCount[player];
             drawnCardsPre = state.handCount[player];
 
-            smithyAction(player, &state, smithyPos);
+            smithyCard(player, smithyPos, &state);
             checkGameState(deckCountPre, drawnCardsPre, &passed, &failed, &state);
         }
     }

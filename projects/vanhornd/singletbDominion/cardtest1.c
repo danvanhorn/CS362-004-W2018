@@ -25,7 +25,7 @@ int main()
 
     // test that the smithyAction() completes succesfully
     printf("\n ======= TESTING 'smithyAction()' FUNCTION ======= \n");
-    success = smithyCard(game.whoseTurn,0, &game);
+    success = smithyCard(game.whoseTurn, game.handCount[game.whoseTurn] - 1, &game);
     if (success == 0)
     {
         printf("PASSED: expected 0 return value, received %d \n", success);
